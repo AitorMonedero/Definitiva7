@@ -1,3 +1,5 @@
+/*Pantalla de carga*/
+
 package com.example.adminportatil.definitiva7;
 
 import android.content.Intent;
@@ -19,7 +21,7 @@ public class PrimeraPantalla extends AppCompatActivity {
                 }catch(Exception e){
                     e.printStackTrace();
                 }finally{
-                    Intent intent = new Intent(PrimeraPantalla.this, MainActivity.class);
+                    Intent intent = new Intent(PrimeraPantalla.this, PantallaEleccion.class);
                     startActivity(intent);
                 }
                 finish();

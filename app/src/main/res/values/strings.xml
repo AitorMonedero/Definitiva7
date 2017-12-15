@@ -1,4 +1,38 @@
 <resources>
-    <string name="app_name">Definitiva7</string>
+    <!--nombre de la aplicacion-->
+    <string name="app_name">CebancPizza</string>
+
+    <!--mapa-->
     <string name="title_activity_maps">Map</string>
+
+    <!--nombre de la pantalla inicial-->
+    <string name="nombre">CebancPizzas</string>
+
+    <!--String para el boton de informacion-->
+    <string name="info">Información</string>
+
+    <!--String para el boton de informacion-->
+    <string name="pedido">Realizar pedido</string>
+
+    <!--String para mensaje de cantidad en la pantalla de elccion de las pizzas-->
+    <string name="cant">CANTIDAD</string>
+
+    <!--String para el boton de volver-->
+    <string name="vol">VOLVER</string>
+
+    <!--String para el boton de donde estamos-->
+    <string name="local">DONDE ESTAMOS</string>
+
+    <!--String para el correo-->
+    <string name="contact1">correoCebancPizzas@gmail.com</string>
+
+    <!--String para el telefono-->
+    <string name="tlf">943 31 69 00</string>
+
+    <!--String para el nombre de la calle-->
+    <string name="calle">Berio Pasealekua 50</string>
+
+    <!--String para el contacto-->
+    <string name="cont">CONTACTO</string>
+
 </resources>
