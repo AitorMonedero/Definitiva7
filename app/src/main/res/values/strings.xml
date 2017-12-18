@@ -30,9 +30,31 @@
     <string name="tlf">943 31 69 00</string>
 
     <!--String para el nombre de la calle-->
-    <string name="calle">Berio Pasealekua 50</string>
+    <string name="calle">Nos encontramos en berio Pasealekua 50, codigo postal 20018 Donostia</string>
 
     <!--String para el contacto-->
     <string name="cont">CONTACTO</string>
+
+    <!--String para el array de los tipos de pizza-->
+    <string-array name="SpinnerArray">
+        <item>Pizza Barbacoa</item>
+        <item>Pizza Carbonara</item>
+        <item>Pizza 4 Quesos</item>
+        <item>Pizza Vegetal</item>
+        <item>Pizza Tropical</item>
+    </string-array>
+
+    <!--String para el array de las masas de pizza-->
+    <string-array name="SpinnerMasas">
+        <item>Fina</item>
+        <item>Normal</item>
+    </string-array>
+
+    <!--String para el array de las masas de pizza-->
+    <string-array name="SpinnerTamaños">
+        <item>Individual</item>
+        <item>Mediana</item>
+        <item>Familiar</item>
+    </string-array>
 
 </resources>
