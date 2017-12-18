@@ -1,4 +1,27 @@
 <resources>
+
+    <!--Strings para botones -->
+
+            <!--String para el boton de informacion-->
+            <string name="info">Información</string>
+
+            <!--String para el boton de informacion-->
+            <string name="pedido">Realizar pedido</string>
+
+            <!--String para el boton de volver-->
+            <string name="vol">VOLVER</string>
+
+            <!--String para el boton de donde estamos-->
+            <string name="local">DONDE ESTAMOS</string>
+
+            <!--String para el boton de añadir a la compra-->
+            <string name="btnCom">Añadir a mi compra</string>
+
+            <!--String para el boton de siguiente-->
+            <string name="btnSig">SIGUIENTE</string>
+
+
+
     <!--nombre de la aplicacion-->
     <string name="app_name">CebancPizza</string>
 
@@ -8,20 +31,15 @@
     <!--nombre de la pantalla inicial-->
     <string name="nombre">CebancPizzas</string>
 
-    <!--String para el boton de informacion-->
-    <string name="info">Información</string>
 
-    <!--String para el boton de informacion-->
-    <string name="pedido">Realizar pedido</string>
+    <!--Descripciones de las imagenes-->
+    <string name="description">Imagen de la pizzeria Pizzas Cebanc</string>
+
 
     <!--String para mensaje de cantidad en la pantalla de elccion de las pizzas-->
     <string name="cant">CANTIDAD</string>
 
-    <!--String para el boton de volver-->
-    <string name="vol">VOLVER</string>
 
-    <!--String para el boton de donde estamos-->
-    <string name="local">DONDE ESTAMOS</string>
 
     <!--String para el correo-->
     <string name="contact1">correoCebancPizzas@gmail.com</string>
@@ -34,6 +52,17 @@
 
     <!--String para el contacto-->
     <string name="cont">CONTACTO</string>
+
+
+
+    <!--String para los tipos de pizza-->
+    <string name="tipos">Escoge tu tipo de pizza</string>
+
+    <!--String para la masa de la pizza-->
+    <string name="masas">Escoge tu tipo de masa</string>
+
+    <!--String para el tamaño de la pizza-->
+    <string name="tamaños">Escoge tu tamaño de pizza</string>
 
     <!--String para el array de los tipos de pizza-->
     <string-array name="SpinnerArray">

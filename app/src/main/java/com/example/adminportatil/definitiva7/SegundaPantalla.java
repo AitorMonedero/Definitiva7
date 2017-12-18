@@ -20,7 +20,7 @@ import android.widget.Toast;
 public class SegundaPantalla extends AppCompatActivity {
 
 
-    private Button plus,minus;
+    private Button plus,minus,volver,siguiente;
     private int cantidad=0;
     private String cantidadString;
     private TextView cantidadTotal;
@@ -34,17 +34,31 @@ public class SegundaPantalla extends AppCompatActivity {
         Spinner opcionesMasa;
         Spinner opcionesTamaño;
 
-        final TextView lblMensaje1;
-        final String[] datos;
-        final String[] masas;
-        final String[] tamaños;
+        final TextView lblMensaje;
 
+        //LOS ARRAYS
 
-        datos = new String[]{"Pizza Barbacoa","Pizza Carbonara","Pizza 4 Quesos","Pizza Vegetal","Pizza Tropical"};
-        masas = new String[]{"Fina","Normal"};
-        tamaños = new String[]{"Individual","Mediana","Familiar"};
+            final String[] datos; // Array de los datos de los tipos de pizza
+            final String[] masas; // Array de los datos de las masas de pizza
+            final String[] tamaños; // Array de los datos de los tamaños de pizza
 
-        lblMensaje1=(TextView) findViewById(R.id.lblMensaje1);
+            //Rellenamos el array DATOS.
+            datos = new String[]{"Pizza Barbacoa","Pizza Carbonara","Pizza 4 Quesos","Pizza Vegetal","Pizza Tropical"};
+            //Rellenamos el array MASAS.
+            masas = new String[]{"Fina","Normal"};
+            //Rellenamos el array TAMAÑOS.
+            tamaños = new String[]{"Individual","Mediana","Familiar"};
+
+        //REFERENCIAS
+
+            plus=(Button)findViewById(R.id.btnPlus);
+            minus=(Button)findViewById(R.id.btnMinus);
+            volver=(Button) findViewById(R.id.btnVolver);
+            siguiente=(Button) findViewById(R.id.btnSiguiente);
+            cantidadTotal=(TextView)findViewById(R.id.txtCantidad);
+
+        cantidadString=String.valueOf(cantidad);
+        cantidadTotal.setText(cantidadString);
 
         //Elemento ArrayAdapter, que permite coger un Array como fuente de información.
         ArrayAdapter<CharSequence> adaptador = ArrayAdapter.createFromResource (this, R.array.SpinnerArray, android.R.layout.simple_spinner_item);
@@ -56,12 +70,10 @@ public class SegundaPantalla extends AppCompatActivity {
 
         cmbOpciones.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, android.view.View v, int position, long id) {
-                lblMensaje1.setText("Seleccionado: "+ datos[position]+","+masas[position]+","+tamaños[position]);
-                //Podemos recuperar el ítem seleccionado usando
-                //parent.getItemAtPosition(position)
+
             }
             public void onNothingSelected(AdapterView<?> parent) {
-                lblMensaje1.setText("");
+
             }
         });
 
@@ -76,18 +88,13 @@ public class SegundaPantalla extends AppCompatActivity {
         opcionesMasa.setAdapter(adaptador1);
 
         opcionesMasa.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            public void onItemSelected(AdapterView<?> parent, android.view.View v, int position, long id) {
-                lblMensaje1.setText("Seleccionado: "+ datos[position]+","+masas[position]+","+tamaños[position]);
-                //Podemos recuperar el ítem seleccionado usando
-                //parent.getItemAtPosition(position)
+            public void onItemSelected(AdapterView<?> parent, android.view.View v, int position1, long id) {
+
             }
             public void onNothingSelected(AdapterView<?> parent) {
-                lblMensaje1.setText("");
+
             }
         });
-
-
-
 
         //Elemento ArrayAdapter, que permite coger un Array como fuente de información.
         ArrayAdapter<CharSequence> adaptador2 = ArrayAdapter.createFromResource (this, R.array.SpinnerTamaños, android.R.layout.simple_spinner_item);
@@ -98,52 +105,58 @@ public class SegundaPantalla extends AppCompatActivity {
         opcionesTamaño.setAdapter(adaptador2);
 
         opcionesMasa.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            public void onItemSelected(AdapterView<?> parent, android.view.View v, int position2, long id) {
-                lblMensaje1.setText("Seleccionado: "+ datos[position2]+","+masas[position2]+","+tamaños[position2]);
-                //Podemos recuperar el ítem seleccionado usando
-                //parent.getItemAtPosition(position)
+            public void onItemSelected(AdapterView<?> parent, android.view.View v, int position, long id) {
+
             }
             public void onNothingSelected(AdapterView<?> parent) {
-                lblMensaje1.setText("");
+
             }
         });
 
 
-        plus=(Button)findViewById(R.id.btnPlus);
-        minus=(Button)findViewById(R.id.btnMinus);
-        cantidadTotal=(TextView)findViewById(R.id.txtCantidad);
 
 
-        cantidadString=String.valueOf(cantidad);
-        cantidadTotal.setText(cantidadString);
-
-        plus.setOnClickListener(new View.OnClickListener()
-                                       {
-                                           public void onClick(View arg0){
-                                              cantidad=cantidad+1;
-                                              cantidadString=String.valueOf(cantidad);
-                                              cantidadTotal.setText(cantidadString);
-                                           }
-
-                                       }
+        plus.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0){
+                cantidad=cantidad+1;
+                cantidadString=String.valueOf(cantidad);
+                cantidadTotal.setText(cantidadString);
+            }
+        }
 
         );
 
-        minus.setOnClickListener(new View.OnClickListener()
-                                {
-                                    public void onClick(View arg0){
-                                        if(cantidad<1){
-                                            Toast toast1 = Toast.makeText(getApplicationContext(), "No puedes pedir menos de 0 pizzas.", Toast.LENGTH_SHORT);
-                                            toast1.show();
-                                        }else{
-                                            cantidad=cantidad-1;
-                                            cantidadString=String.valueOf(cantidad);
-                                            cantidadTotal.setText(cantidadString);
-                                        }
-                                    }
-
-                                }
+        minus.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0){
+                if(cantidad<1){
+                    Toast toast1 = Toast.makeText(getApplicationContext(), "No puedes pedir menos de 0 pizzas.", Toast.LENGTH_SHORT);
+                    toast1.show();
+                }else{
+                    cantidad=cantidad-1;
+                    cantidadString=String.valueOf(cantidad);
+                    cantidadTotal.setText(cantidadString);
+                }
+            }
+        }
 
         );
+
+        volver.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0){
+                Intent intentaa=new Intent(SegundaPantalla.this,PantallaEleccion.class);
+                startActivity(intentaa);
+            }
+        }
+
+        );
+
+        /*siguiente.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0){
+                Intent intentaar=new Intent(SegundaPantalla.this,TerceraPantalla.class);
+                startActivity(intentaar);
+            }
+        }
+
+        );*/
     }
 }
