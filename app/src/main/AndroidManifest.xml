@@ -53,6 +53,9 @@
         <activity android:name=".SegundaPantalla">
         </activity>
 
+        <activity android:name=".TerceraPantalla">
+        </activity>
+
     </application>
 
 
