@@ -150,13 +150,13 @@ public class SegundaPantalla extends AppCompatActivity {
 
         );
 
-        /*siguiente.setOnClickListener(new View.OnClickListener() {
+        siguiente.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0){
                 Intent intentaar=new Intent(SegundaPantalla.this,TerceraPantalla.class);
                 startActivity(intentaar);
             }
         }
 
-        );*/
+        );
     }
 }

@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 /**
- * Created by adminportatil on 20/12/2017.
+ * Created by Aitor & Jon on 20/12/2017.
  */
 
 public class TerceraPantalla extends AppCompatActivity {
