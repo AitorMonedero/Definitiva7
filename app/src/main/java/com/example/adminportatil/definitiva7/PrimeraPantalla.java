@@ -21,7 +21,7 @@ public class PrimeraPantalla extends AppCompatActivity {
                 }catch(Exception e){
                     e.printStackTrace();
                 }finally{
-                    Intent intent = new Intent(PrimeraPantalla.this, PantallaEleccion.class);
+                    Intent intent = new Intent(PrimeraPantalla.this, PantallaCero.class);
                     startActivity(intent);
                 }
                 finish();

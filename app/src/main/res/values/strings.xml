@@ -20,6 +20,9 @@
             <!--String para el boton de siguiente-->
             <string name="btnSig">SIGUIENTE</string>
 
+            <!--String para el boton de siguiente-->
+            <string name="btnFin">FNALIZAR</string>
+
 
 
     <!--nombre de la aplicacion-->
@@ -27,6 +30,34 @@
 
     <!--mapa-->
     <string name="title_activity_maps">Map</string>
+
+    <!--nombre de la pantalla inicial-->
+    <string name="NAME">Nombre</string>
+
+    <!--apellido de la pantalla inicial-->
+    <string name="SURNAME">Apellico</string>
+
+    <!--direccion de la pantalla inicial-->
+    <string name="dir1">Direccion</string>
+
+    <!--telefono de la pantalla inicial-->
+    <string name="telefono">Telefono</string>
+
+    <!--email de la pantalla inicial-->
+    <string name="email">E-mail</string>
+
+
+
+    <string name="intNombre">Introduce tu nombre</string>
+    <string name="intApellido">Introduce tu apellido</string>
+    <string name="intDireccion">Introduce tu direccion</string>
+    <string name="intTelefono">Introduce tu telefono</string>
+    <string name="intrEmail">Introduce tu email</string>
+
+
+
+
+
 
     <!--nombre de la pantalla inicial-->
     <string name="nombre">CebancPizzas</string>
