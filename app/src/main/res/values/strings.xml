@@ -117,4 +117,15 @@
         <item>Familiar</item>
     </string-array>
 
+
+    <!--String para el array de las masas de pizza-->
+    <string-array name="SpinnerBebidas">
+        <item>Coca-Cola</item>
+        <item>Kas Limon</item>
+        <item>Agua</item>
+        <item>Cerveza</item>
+        <item>Nestea</item>
+        <item>RedBull</item>
+    </string-array>
+
 </resources>
