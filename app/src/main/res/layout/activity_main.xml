@@ -7,6 +7,7 @@
     tools:context="com.example.adminportatil.definitiva7.MainActivity">
 
 
+
     <Button
         android:id="@+id/ubicarme"
         android:layout_width="356dp"

@@ -30,6 +30,7 @@ public class TerceraPantalla extends AppCompatActivity {
         //Elemento ArrayAdapter, que permite coger un Array como fuente de información.
         ArrayAdapter<CharSequence> adaptador = ArrayAdapter.createFromResource (this, R.array.SpinnerBebidas, android.R.layout.simple_spinner_item);
 
+
         //Creamos nuestro Spinner
         cmbBebidas = (Spinner) findViewById (R.id.spnBebida);
 

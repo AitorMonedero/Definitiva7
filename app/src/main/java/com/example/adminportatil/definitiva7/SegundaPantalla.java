@@ -20,6 +20,7 @@ import android.widget.Toast;
 public class SegundaPantalla extends AppCompatActivity {
 
 
+
     private Button plus,minus,volver,siguiente;
     private int cantidad=0;
     private String cantidadString;

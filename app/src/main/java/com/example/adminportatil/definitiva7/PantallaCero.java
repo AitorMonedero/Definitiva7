@@ -12,6 +12,7 @@ import android.widget.Toast;
  * Created by adminportatil on 27/12/2017.
  */
 
+
 public class PantallaCero extends AppCompatActivity {
 
     private Button siguiente,salir;

@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/fondo2">
 
+
     <Button
         android:id="@+id/btnInfo"
         style="@style/Widget.AppCompat.Button.Colored"
