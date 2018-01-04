@@ -65,6 +65,7 @@
 
     <!--Descripciones de las imagenes-->
     <string name="description">Imagen de la pizzeria Pizzas Cebanc</string>
+    <string name="descriptionBebida">Logos de las bebidas</string>
 
 
     <!--String para mensaje de cantidad en la pantalla de elccion de las pizzas-->
