@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 /**
  * Created by adminportatil on 27/12/2017.
  */
@@ -17,11 +19,15 @@ public class PantallaCero extends AppCompatActivity {
 
     private Button siguiente,salir;
     private EditText nombre,apellido,telefono,direccion,email;
+    String nombre1,apellido1;
+
+    ArrayList<String> pedido;
     @Override
 protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_cero_pantalla);
 
+    pedido=new ArrayList<String>();
 
         siguiente=(Button)findViewById(R.id.BotonSig);
         nombre=(EditText)findViewById(R.id.editText);
@@ -47,6 +53,10 @@ protected void onCreate(Bundle savedInstanceState) {
                 Toast toast3 = Toast.makeText(getApplicationContext(), "Tienes que introducir un telefono.", Toast.LENGTH_SHORT);
                 toast3.show();
                 telefono.requestFocus();
+            }else if(telefono.getText().length()<9){
+                Toast toast3 = Toast.makeText(getApplicationContext(), "El telefono debe ser de 9 digitos.", Toast.LENGTH_SHORT);
+                toast3.show();
+                telefono.requestFocus();
             }else if(direccion.getText().length()==0){
                 Toast toast4 = Toast.makeText(getApplicationContext(), "Tienes que introducir una direccion.", Toast.LENGTH_SHORT);
                 toast4.show();
@@ -57,7 +67,12 @@ protected void onCreate(Bundle savedInstanceState) {
                 email.requestFocus();
             } else{
 
+                nombre1=nombre.getText().toString();
+                apellido1=apellido.getText().toString();
+
+                pedido.add(nombre1+" "+apellido1+" "+"Pedido #200.");
              Intent inten=new Intent(PantallaCero.this,PantallaEleccion.class);
+            inten.putExtra("Usuarios",pedido);
              startActivity(inten);}
         }
 
