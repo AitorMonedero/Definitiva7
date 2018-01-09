@@ -29,6 +29,7 @@ public class PantallaEleccion extends AppCompatActivity {
                                     {
                                         public void onClick(View arg0){
                                             Intent inten=new Intent(PantallaEleccion.this,MainActivity.class);
+                                            inten.putExtra("Usuarios",pedidos);
                                             startActivity(inten);
                                         }
 

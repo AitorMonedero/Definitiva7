@@ -23,7 +23,8 @@ public class SegundaPantalla extends AppCompatActivity {
 
 
     private Button plus,minus,volver,siguiente,añadir;
-    private int cantidad=1,precio=0,precioTotal=0;
+    private int cantidad=1;
+    private double precio=0,precioTotal=0;
     private String cantidadString,tipo,masa,tamaño,frase,precioString;
     private TextView cantidadTotal,precioStrings;
     ArrayList<String> pedido;
@@ -151,6 +152,8 @@ public class SegundaPantalla extends AppCompatActivity {
         volver.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0){
                 Intent intentaa=new Intent(SegundaPantalla.this,PantallaEleccion.class);
+                intentaa.putExtra("Usuarios",pedido);
+                intentaa.putExtra("Dinero",precioTotal);
                 startActivity(intentaa);
             }
         }
@@ -161,6 +164,7 @@ public class SegundaPantalla extends AppCompatActivity {
             public void onClick(View arg0){
                 Intent intentaar=new Intent(SegundaPantalla.this,TerceraPantalla.class);
                 intentaar.putExtra("Usuarios",pedido);
+                intentaar.putExtra("Dinero",precioTotal);
                 startActivity(intentaar);
 
             }

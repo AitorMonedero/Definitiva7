@@ -18,8 +18,8 @@ import java.util.ArrayList;
 public class TerceraPantalla extends AppCompatActivity {
 
 
-    Button siguiente,salir;
-    TextView cajaCoca,cajaNaranja,cajaLimon,cajaAgua,cajaVino,cajaCerveza;
+    Button siguiente,salir,carrito;
+    TextView cajaCoca,cajaNaranja,cajaLimon,cajaAgua,cajaVino,cajaCerveza,price;
     Button masCocaCola,masNaranja,masLimon, masRedbull,masCerveza,masAgua,menosCola,menosAgua,menosLimon,menosNaranja, menosRedBull,menosCerveza;
 
 
@@ -46,7 +46,9 @@ public class TerceraPantalla extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tercera_pantalla);
 
-
+        Bundle bundle = getIntent().getExtras();
+        pedido=bundle.getStringArrayList("Usuarios");
+        precio=bundle.getDouble("Dinero");
 
         siguiente = (Button) findViewById(R.id.button9);
         salir = (Button) findViewById(R.id.button11);
@@ -78,6 +80,11 @@ public class TerceraPantalla extends AppCompatActivity {
         menosLimon = (Button) findViewById(R.id.menosLimon);
         menosRedBull = (Button) findViewById(R.id.menosRedBull);
         menosNaranja = (Button) findViewById(R.id.menosNaranja);
+        carrito=(Button) findViewById(R.id.btnCompra);
+
+
+        price=(TextView) findViewById(R.id.txtPrecio);
+        price.setText(String.valueOf(precio));
 
         menosCola.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -208,7 +215,7 @@ public class TerceraPantalla extends AppCompatActivity {
             }
         });
 
-        siguiente.setOnClickListener(new View.OnClickListener() {
+        carrito.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -236,9 +243,24 @@ public class TerceraPantalla extends AppCompatActivity {
                         pedido.add(cantCerveza + "x Cerveza.");
                     }
 
-                    pedido.add("TOTAL: " + precio + "€");
+                    cantAgua=0;
+                    cantCerveza=0;
+                    cantCoca=0;
+                    cantLimon=0;
+                    cantNaranja=0;
+                    cantVino=0;
 
-                    if (precio > 15) {
+                    cajaAgua.setText(String.valueOf(cantAgua));
+                    cajaCerveza.setText(String.valueOf(cantCerveza));
+                    cajaCoca.setText(String.valueOf(cantCoca));
+                    cajaLimon.setText(String.valueOf(cantLimon));
+                    cajaNaranja.setText(String.valueOf(cantNaranja));
+                    cajaVino.setText(String.valueOf(cantVino));
+
+                    price.setText(String.valueOf(precio));
+                    //pedido.add("TOTAL: " + precio + "€");
+
+                    /*if (precio > 15) {
                         pedido.add("Por haber superado los 15€ en el pedido, le vamos a hacer un reagalo de un peluche.");
                     }
 
@@ -251,7 +273,7 @@ public class TerceraPantalla extends AppCompatActivity {
                     Intent intent = new Intent(TerceraPantalla.this, TerceraPantalla.class);
                     intent.putExtra("Usuarios", pedido);
                     startActivity(intent);
-                    finish();
+                    finish();*/
                 }
 
 
