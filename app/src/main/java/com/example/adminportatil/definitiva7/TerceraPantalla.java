@@ -89,8 +89,7 @@ public class TerceraPantalla extends AppCompatActivity {
         menosCola.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(cantCoca==0) {
-                }else{
+                if(cantCoca!=0) {
                     cantCoca = cantCoca - 1;
                     cajaCoca.setText(""+cantCoca);
                     precio = precio - precioCoca;
@@ -110,8 +109,7 @@ public class TerceraPantalla extends AppCompatActivity {
         menosNaranja.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(cantNaranja==0) {
-                }else{
+                if(cantNaranja!=0) {
                     cantNaranja = cantNaranja - 1;
                     cajaNaranja.setText(""+cantNaranja);
                     precio = precio - precioNestea;

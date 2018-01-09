@@ -20,8 +20,11 @@ public class PantallaEleccion extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalla_eleccion);
 
+
+
     Bundle bundle = getIntent().getExtras();
     pedidos=bundle.getStringArrayList("Usuarios");
+
 
         informacion=(Button)findViewById(R.id.btnInfo);
 
