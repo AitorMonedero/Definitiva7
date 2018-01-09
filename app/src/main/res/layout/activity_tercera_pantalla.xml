@@ -14,15 +14,17 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:fontFamily="sans-serif-condensed"
-        android:text="Bebidas"
-        android:textColor="@android:color/black"
-        android:textSize="30sp"
+        android:text="Elige tus bebidas"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="#4CAF50"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.049"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.046" />
+        app:layout_constraintVertical_bias="0.121" />
 
     <Button
         android:id="@+id/button9"
@@ -32,7 +34,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Siguiente"
+        android:text="Resumen pedido"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.915"
@@ -48,7 +50,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Salir"
+        android:text="@string/vol"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.071"
@@ -79,10 +81,10 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:src="@drawable/vino"
+        android:src="@drawable/redbull"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.068"
+        app:layout_constraintHorizontal_bias="0.027"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.823" />
@@ -105,19 +107,19 @@
 
     <ImageView
         android:id="@+id/imageView11"
-        android:layout_width="68dp"
-        android:layout_height="65dp"
+        android:layout_width="74dp"
+        android:layout_height="72dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:src="@drawable/naranja"
+        android:src="@drawable/nestea"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.59"
+        app:layout_constraintHorizontal_bias="0.642"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.211" />
+        app:layout_constraintVertical_bias="0.215" />
 
     <ImageView
         android:id="@+id/imageView10"
@@ -127,7 +129,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:src="@drawable/cerbeza"
+        android:src="@drawable/cerveza"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.602"
@@ -170,7 +172,7 @@
         app:layout_constraintVertical_bias="0.534" />
 
     <Button
-        android:id="@+id/menosVino"
+        android:id="@+id/menosRedBull"
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_marginBottom="8dp"
@@ -182,10 +184,10 @@
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.29"
+        app:layout_constraintHorizontal_bias="0.252"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.82" />
+        app:layout_constraintVertical_bias="0.821" />
 
     <Button
         android:id="@+id/menoCoca"
@@ -278,7 +280,7 @@
         app:layout_constraintVertical_bias="0.534" />
 
     <Button
-        android:id="@+id/masVino"
+        android:id="@+id/masRedbull"
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_marginBottom="8dp"
@@ -399,7 +401,7 @@
         app:layout_constraintHorizontal_bias="0.354"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.82" />
+        app:layout_constraintVertical_bias="0.821" />
 
     <TextView
         android:id="@+id/textView19"
@@ -477,7 +479,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Zumo Limon 1€/u"
+        android:text="Kas Limon 1€/u"
         android:textColor="@android:color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -494,7 +496,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Vino 1€/u"
+        android:text="RedBull 1€/u"
         android:textColor="@android:color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -511,14 +513,14 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Zumo Naranja 1€/u"
+        android:text="Nestea 1€/u"
         android:textColor="@android:color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.924"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.199" />
+        app:layout_constraintVertical_bias="0.193" />
 
     <TextView
         android:id="@+id/textView27"

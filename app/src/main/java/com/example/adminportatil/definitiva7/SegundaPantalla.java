@@ -23,9 +23,9 @@ public class SegundaPantalla extends AppCompatActivity {
 
 
     private Button plus,minus,volver,siguiente,añadir;
-    private int cantidad=1,precio=0;
-    private String cantidadString,tipo,masa,tamaño,frase;
-    private TextView cantidadTotal,precioTotal;
+    private int cantidad=1,precio=0,precioTotal=0;
+    private String cantidadString,tipo,masa,tamaño,frase,precioString;
+    private TextView cantidadTotal,precioStrings;
     ArrayList<String> pedido;
 
 
@@ -36,7 +36,12 @@ public class SegundaPantalla extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_segunda_pantalla);
 
-        pedido=new ArrayList<String>();
+        //pedido=new ArrayList<String>();
+
+        Bundle bundle = getIntent().getExtras();
+        pedido=bundle.getStringArrayList("Usuarios");
+
+
         TipoPizzas = (RadioGroup) findViewById(R.id.tipo01);
         TamañoPizzas = (RadioGroup) findViewById(R.id.tamaño01);
         TipoMasas = (RadioGroup) findViewById(R.id.masa01);
@@ -46,8 +51,9 @@ public class SegundaPantalla extends AppCompatActivity {
         volver=(Button) findViewById(R.id.btnVolver);
         siguiente=(Button) findViewById(R.id.btnSiguiente);
         añadir=(Button) findViewById(R.id.btnCompra);
-        cantidadTotal=(TextView)findViewById(R.id.txtCantidad);
 
+        cantidadTotal=(TextView)findViewById(R.id.txtCantidad);
+        precioStrings=(TextView) findViewById(R.id.txtPrecio);
 
 
         cantidadString=String.valueOf(cantidad);
@@ -90,27 +96,35 @@ public class SegundaPantalla extends AppCompatActivity {
                         tipo = "Pizza tropical ";
                     }
 
+
                     if (TipoMasas.getCheckedRadioButtonId()==R.id.btnFina){
-                        masa="de masa fina.";
+                        masa="de masa fina";
                     }else if(TipoMasas.getCheckedRadioButtonId()==R.id.btnNormal){
-                        masa="de masa normal.";
+                        masa="de masa normal";
                     }
 
 
                     if (TamañoPizzas.getCheckedRadioButtonId()==R.id.btnIndividual){
                         tamaño="individual ";
+                        precio=6;
                     }else if(TamañoPizzas.getCheckedRadioButtonId()==R.id.btnMediana){
                         tamaño="mediana ";
+                        precio=10;
                     }else if(TamañoPizzas.getCheckedRadioButtonId()==R.id.btnFamiliar){
                         tamaño="familiar ";
+                        precio=12;
                     }
 
+                    precioTotal=precioTotal+(precio*cantidad);
+                    precioString=String.valueOf(precioTotal)+"€";
+                    precioStrings.setText(precioString);
                     cantidadString=String.valueOf(cantidad)+"x ";
-                    frase=cantidadString+tipo+tamaño+masa;
+                    frase=cantidadString+tipo+tamaño+masa+" "+precioTotal+"€.";
                     pedido.add(frase);
                     Toast.makeText(getApplicationContext(), "Añadido con exito al carro de la compra", Toast.LENGTH_SHORT).show();
                     cantidad = 1;
                     cantidadTotal.setText("1");
+
                 }
 
 
@@ -146,7 +160,9 @@ public class SegundaPantalla extends AppCompatActivity {
         siguiente.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0){
                 Intent intentaar=new Intent(SegundaPantalla.this,TerceraPantalla.class);
+                intentaar.putExtra("Usuarios",pedido);
                 startActivity(intentaar);
+
             }
         }
 
