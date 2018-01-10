@@ -210,6 +210,8 @@ public class TerceraPantalla extends AppCompatActivity {
         salir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intentaa=new Intent(TerceraPantalla.this,PantallaCero.class);
+                startActivity(intentaa);
                 finish();
             }
         });

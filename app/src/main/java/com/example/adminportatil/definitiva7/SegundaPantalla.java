@@ -157,6 +157,7 @@ public class SegundaPantalla extends AppCompatActivity {
             public void onClick(View arg0){
                 Intent intentaa=new Intent(SegundaPantalla.this,PantallaCero.class);
                 startActivity(intentaa);
+                finish();
 
             }
         }

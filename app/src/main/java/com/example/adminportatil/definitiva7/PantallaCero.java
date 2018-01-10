@@ -36,6 +36,9 @@ protected void onCreate(Bundle savedInstanceState) {
 
     pedido=new ArrayList<String>();
 
+
+
+
         siguiente=(Button)findViewById(R.id.BotonSig);
         nombre=(EditText)findViewById(R.id.editText);
         apellido=(EditText)findViewById(R.id.editText2);
@@ -85,7 +88,7 @@ protected void onCreate(Bundle savedInstanceState) {
                 Intent inten=new Intent(PantallaCero.this,PantallaEleccion.class);
                 inten.putExtra("Usuarios",pedido);
                 startActivity(inten);}
-                finish();
+
         }
 
        }
