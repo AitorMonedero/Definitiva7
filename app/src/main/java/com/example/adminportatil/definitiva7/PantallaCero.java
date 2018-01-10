@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by adminportatil on 27/12/2017.
@@ -19,10 +21,14 @@ public class PantallaCero extends AppCompatActivity {
 
     private Button siguiente,salir;
     private EditText nombre,apellido,telefono,direccion,email;
-    String nombre1,apellido1;
+    String nombre1,apellido1,direccion1,telefono1,email1;
     int numPedido;
 
     ArrayList<String> pedido;
+
+
+
+
     @Override
 protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -36,6 +42,7 @@ protected void onCreate(Bundle savedInstanceState) {
         direccion=(EditText)findViewById(R.id.editText4);
         email=(EditText)findViewById(R.id.editText5);
         telefono=(EditText)findViewById(R.id.editText3);
+
 
 
 
@@ -62,20 +69,23 @@ protected void onCreate(Bundle savedInstanceState) {
                 Toast toast4 = Toast.makeText(getApplicationContext(), "Tienes que introducir una direccion.", Toast.LENGTH_SHORT);
                 toast4.show();
                 direccion.requestFocus();
-            }else if(email.getText().length()==0){
-                Toast toast5 = Toast.makeText(getApplicationContext(), "Tienes que introducir un email.", Toast.LENGTH_SHORT);
-                toast5.show();
-                email.requestFocus();
-            } else{
+            } else if (email.getText().length()==0 && isValidEmailAddress(email.getText().toString())==false){
+                Toast toast6 = Toast.makeText(getApplicationContext(), "Email no válido.", Toast.LENGTH_SHORT);
+                toast6.show();
+            }else{
 
                 nombre1=nombre.getText().toString();
                 apellido1=apellido.getText().toString();
+                telefono1=telefono.getText().toString();
+                direccion1=direccion.getText().toString();
+                email1=email.getText().toString();
                 numPedido=(int) (Math.random() * 350) + 1;
 
-                pedido.add(nombre1+" "+apellido1+" "+"Pedido #"+numPedido);
-             Intent inten=new Intent(PantallaCero.this,PantallaEleccion.class);
-            inten.putExtra("Usuarios",pedido);
-             startActivity(inten);}
+                pedido.add(nombre1+" "+apellido1+" "+" \n \nDirección: "+direccion1+"  \n \n telefono:  "+telefono1+"  \n \ne-mail: "+email1+" " +" \n \nPedido #"+numPedido+".");
+                Intent inten=new Intent(PantallaCero.this,PantallaEleccion.class);
+                inten.putExtra("Usuarios",pedido);
+                startActivity(inten);}
+                finish();
         }
 
        }
@@ -96,4 +106,16 @@ protected void onCreate(Bundle savedInstanceState) {
 
 }
 
+    public static boolean isValidEmailAddress(String correo) {
+        boolean result;
+        if(!correo.matches("^[a-zA-Z0-9]+@[a-zA-Z0-9]+(.[a-zA-Z]{2,})$"))
+            result=false;
+        else result=true;
+
+        return result;
+    }
+
 }
+
+
+

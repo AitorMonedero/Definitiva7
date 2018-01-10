@@ -23,7 +23,7 @@ public class SegundaPantalla extends AppCompatActivity {
 
 
     private Button plus,minus,volver,siguiente,añadir;
-    private int cantidad=1;
+    private int cantidad=1,sumaCantidad=0;
     private double precio=0,precioTotal=0;
     private String cantidadString,tipo,masa,tamaño,frase,precioString;
     private TextView cantidadTotal,precioStrings;
@@ -62,9 +62,12 @@ public class SegundaPantalla extends AppCompatActivity {
 
         plus.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0){
-                cantidad=cantidad+1;
-                cantidadString=String.valueOf(cantidad);
-                cantidadTotal.setText(cantidadString);
+
+                    cantidad = cantidad + 1;
+                    cantidadString = String.valueOf(cantidad);
+                    cantidadTotal.setText(cantidadString);
+
+
             }
         }
 
@@ -116,11 +119,12 @@ public class SegundaPantalla extends AppCompatActivity {
                         precio=12;
                     }
 
+                    sumaCantidad=sumaCantidad+cantidad;
                     precioTotal=precioTotal+(precio*cantidad);
                     precioString=String.valueOf(precioTotal)+"€";
                     precioStrings.setText(precioString);
                     cantidadString=String.valueOf(cantidad)+"x ";
-                    frase=cantidadString+tipo+tamaño+masa+" "+precioTotal+"€.";
+                    frase=cantidadString+tipo+tamaño+masa+" "+(precio*cantidad)+"€.";
                     pedido.add(frase);
                     Toast.makeText(getApplicationContext(), "Añadido con exito al carro de la compra", Toast.LENGTH_SHORT).show();
                     cantidad = 1;
@@ -151,10 +155,9 @@ public class SegundaPantalla extends AppCompatActivity {
 
         volver.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0){
-                Intent intentaa=new Intent(SegundaPantalla.this,PantallaEleccion.class);
-                intentaa.putExtra("Usuarios",pedido);
-                intentaa.putExtra("Dinero",precioTotal);
+                Intent intentaa=new Intent(SegundaPantalla.this,PantallaCero.class);
                 startActivity(intentaa);
+
             }
         }
 
@@ -162,10 +165,17 @@ public class SegundaPantalla extends AppCompatActivity {
 
         siguiente.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0){
-                Intent intentaar=new Intent(SegundaPantalla.this,TerceraPantalla.class);
-                intentaar.putExtra("Usuarios",pedido);
-                intentaar.putExtra("Dinero",precioTotal);
-                startActivity(intentaar);
+
+                if(sumaCantidad==0){
+                    Toast toast1 = Toast.makeText(getApplicationContext(), "No puedes pedir menos de 1 pizza.", Toast.LENGTH_SHORT);
+                    toast1.show();
+                }else {
+                    Intent intentaar = new Intent(SegundaPantalla.this, TerceraPantalla.class);
+                    intentaar.putExtra("Usuarios", pedido);
+                    intentaar.putExtra("Dinero", precioTotal);
+                    startActivity(intentaar);
+                    finish();
+                }
 
             }
         }

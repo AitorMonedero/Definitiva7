@@ -48,6 +48,7 @@ public class PantallaEleccion extends AppCompatActivity {
                                                Intent intenta=new Intent(PantallaEleccion.this,SegundaPantalla.class);
                                                intenta.putExtra("Usuarios",pedidos);
                                                startActivity(intenta);
+                                               finish();
                                            }
 
                                        }
