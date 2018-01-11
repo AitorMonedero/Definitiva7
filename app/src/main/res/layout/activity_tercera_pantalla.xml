@@ -156,8 +156,8 @@
 
     <Button
         android:id="@+id/menosLimon"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -174,8 +174,8 @@
 
     <Button
         android:id="@+id/menosRedBull"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -192,8 +192,8 @@
 
     <Button
         android:id="@+id/menoCoca"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -210,8 +210,8 @@
 
     <Button
         android:id="@+id/menosNaranja"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -228,8 +228,8 @@
 
     <Button
         android:id="@+id/menosAgua"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -246,8 +246,8 @@
 
     <Button
         android:id="@+id/menosCerveza"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -264,8 +264,8 @@
 
     <Button
         android:id="@+id/masLimon"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -282,8 +282,8 @@
 
     <Button
         android:id="@+id/masRedbull"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -300,8 +300,8 @@
 
     <Button
         android:id="@+id/masCoca"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -318,8 +318,8 @@
 
     <Button
         android:id="@+id/masNaranja"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -336,8 +336,8 @@
 
     <Button
         android:id="@+id/masAgua"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -354,8 +354,8 @@
 
     <Button
         android:id="@+id/masCerveza"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"

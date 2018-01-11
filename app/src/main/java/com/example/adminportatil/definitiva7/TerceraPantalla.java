@@ -19,17 +19,17 @@ public class TerceraPantalla extends AppCompatActivity {
 
 
     Button siguiente, salir, carrito;
-    TextView cajaCoca, cajaNaranja, cajaLimon, cajaAgua, cajaVino, cajaCerveza, price;
-    Button masCocaCola, masNaranja, masLimon, masRedbull, masCerveza, masAgua, menosCola, menosAgua, menosLimon, menosNaranja, menosRedBull, menosCerveza;
+    TextView txtCocaCola, txtNestea, txtKas, txtAgua, txtRedBull, txtCerveza, price;
+    Button masCocaCola, masNestea, masKas, masRedbull, masCerveza, masAgua, menosCola, menosAgua, menosKas, menosNestea, menosRedBull, menosCerveza;
 
 
     ArrayList<String> pedido;
 
     int cantCoca,
             cantTotal,
-            cantNaranja,
-            cantLimon,
-            cantVino,
+            cantNestea,
+            cantKas,
+            cantRedBull,
             cantAgua,
             cantCerveza;
 
@@ -51,39 +51,54 @@ public class TerceraPantalla extends AppCompatActivity {
         pedido = bundle.getStringArrayList("Usuarios");
         precio = bundle.getDouble("Dinero");
 
+
+        //Todos lo relacionado con la Coca-Cola
+        txtCocaCola = (TextView) findViewById(R.id.textView19);
+        cantCoca = Integer.parseInt(txtCocaCola.getText().toString());
+        masCocaCola = (Button) findViewById(R.id.masCoca);
+        menosCola = (Button) findViewById(R.id.menoCoca);
+
+
+        //Todos lo relacionado con el Nestea
+        txtNestea = (TextView) findViewById(R.id.textView23);
+        cantNestea = Integer.parseInt(txtNestea.getText().toString());
+        masNestea = (Button) findViewById(R.id.masNaranja);
+        menosNestea = (Button) findViewById(R.id.menosNaranja);
+
+
+        //Todos lo relacionado con el Kas
+        txtKas = (TextView) findViewById(R.id.textView16);
+        cantKas = Integer.parseInt(txtKas.getText().toString());
+        masKas = (Button) findViewById(R.id.masLimon);
+        menosKas = (Button) findViewById(R.id.menosLimon);
+
+
+        //Todos lo relacionado con el Agua
+        txtAgua = (TextView) findViewById(R.id.textView22);
+        cantAgua = Integer.parseInt(txtAgua.getText().toString());
+        masAgua = (Button) findViewById(R.id.masAgua);
+        menosAgua = (Button) findViewById(R.id.menosAgua);
+
+
+        //Todos lo relacionado con el RedBull
+        txtRedBull = (TextView) findViewById(R.id.textView20);
+        cantRedBull = Integer.parseInt(txtRedBull.getText().toString());
+        masRedbull = (Button) findViewById(R.id.masRedbull);
+        menosRedBull = (Button) findViewById(R.id.menosRedBull);
+
+
+        //Todos lo relacionado con la Cerveza
+        txtCerveza = (TextView) findViewById(R.id.textView21);
+        cantCerveza = Integer.parseInt(txtCerveza.getText().toString());
+        masCerveza = (Button) findViewById(R.id.masCerveza);
+        menosCerveza = (Button) findViewById(R.id.menosCerveza);
+
+        //Todos lo relacionado con los botones
         siguiente = (Button) findViewById(R.id.button9);
         salir = (Button) findViewById(R.id.button11);
-
-        cajaCoca = (TextView) findViewById(R.id.textView19);
-        cajaNaranja = (TextView) findViewById(R.id.textView23);
-        cajaLimon = (TextView) findViewById(R.id.textView16);
-        cajaAgua = (TextView) findViewById(R.id.textView22);
-        cajaVino = (TextView) findViewById(R.id.textView20);
-        cajaCerveza = (TextView) findViewById(R.id.textView21);
-
-        cantCoca = Integer.parseInt(cajaCoca.getText().toString());
-        cantNaranja = Integer.parseInt(cajaNaranja.getText().toString());
-        cantLimon = Integer.parseInt(cajaLimon.getText().toString());
-        cantAgua = Integer.parseInt(cajaAgua.getText().toString());
-        cantVino = Integer.parseInt(cajaVino.getText().toString());
-        cantCerveza = Integer.parseInt(cajaCerveza.getText().toString());
-
-        masCocaCola = (Button) findViewById(R.id.masCoca);
-        masNaranja = (Button) findViewById(R.id.masNaranja);
-        masLimon = (Button) findViewById(R.id.masLimon);
-        masAgua = (Button) findViewById(R.id.masAgua);
-        masRedbull = (Button) findViewById(R.id.masRedbull);
-        masCerveza = (Button) findViewById(R.id.masCerveza);
-
-        menosCola = (Button) findViewById(R.id.menoCoca);
-        menosAgua = (Button) findViewById(R.id.menosAgua);
-        menosCerveza = (Button) findViewById(R.id.menosCerveza);
-        menosLimon = (Button) findViewById(R.id.menosLimon);
-        menosRedBull = (Button) findViewById(R.id.menosRedBull);
-        menosNaranja = (Button) findViewById(R.id.menosNaranja);
         carrito = (Button) findViewById(R.id.btnCompra);
 
-
+        //Todos lo relacionado con el precio
         price = (TextView) findViewById(R.id.txtPrecio);
         price.setText(String.valueOf(precio));
 
@@ -92,7 +107,7 @@ public class TerceraPantalla extends AppCompatActivity {
             public void onClick(View view) {
                 if (cantCoca != 0) {
                     cantCoca = cantCoca - 1;
-                    cajaCoca.setText("" + cantCoca);
+                    txtCocaCola.setText("" + cantCoca);
                     precio = precio - precioCoca;
                 }
             }
@@ -101,48 +116,48 @@ public class TerceraPantalla extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 cantCoca = cantCoca + 1;
-                cajaCoca.setText("" + cantCoca);
+                txtCocaCola.setText("" + cantCoca);
                 precio = precio + precioCoca;
             }
         });
 
 
-        menosNaranja.setOnClickListener(new View.OnClickListener() {
+        menosNestea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (cantNaranja != 0) {
-                    cantNaranja = cantNaranja - 1;
-                    cajaNaranja.setText("" + cantNaranja);
+                if (cantNestea != 0) {
+                    cantNestea = cantNestea - 1;
+                    txtNestea.setText("" + cantNestea);
                     precio = precio - precioNestea;
                 }
             }
         });
-        masNaranja.setOnClickListener(new View.OnClickListener() {
+        masNestea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cantNaranja = cantNaranja + 1;
-                cajaNaranja.setText("" + cantNaranja);
+                cantNestea = cantNestea + 1;
+                txtNestea.setText("" + cantNestea);
                 precio = precio + precioNestea;
             }
         });
 
 
-        menosLimon.setOnClickListener(new View.OnClickListener() {
+        menosKas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (cantLimon == 0) {
+                if (cantKas == 0) {
                 } else {
-                    cantLimon = cantLimon - 1;
-                    cajaLimon.setText("" + cantLimon);
+                    cantKas = cantKas - 1;
+                    txtKas.setText("" + cantKas);
                     precio = precio - precioKas;
                 }
             }
         });
-        masLimon.setOnClickListener(new View.OnClickListener() {
+        masKas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cantLimon = cantLimon + 1;
-                cajaLimon.setText("" + cantLimon);
+                cantKas = cantKas + 1;
+                txtKas.setText("" + cantKas);
                 precio = precio + precioKas;
             }
         });
@@ -153,7 +168,7 @@ public class TerceraPantalla extends AppCompatActivity {
                 if (cantAgua == 0) {
                 } else {
                     cantAgua = cantAgua - 1;
-                    cajaAgua.setText("" + cantAgua);
+                    txtAgua.setText("" + cantAgua);
                     precio = precio - precioAgua;
                 }
             }
@@ -162,7 +177,7 @@ public class TerceraPantalla extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 cantAgua = cantAgua + 1;
-                cajaAgua.setText("" + cantAgua);
+                txtAgua.setText("" + cantAgua);
                 precio = precio + precioAgua;
             }
         });
@@ -170,10 +185,10 @@ public class TerceraPantalla extends AppCompatActivity {
         menosRedBull.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (cantVino == 0) {
+                if (cantRedBull == 0) {
                 } else {
-                    cantVino = cantVino - 1;
-                    cajaVino.setText("" + cantVino);
+                    cantRedBull = cantRedBull - 1;
+                    txtRedBull.setText("" + cantRedBull);
                     precio = precio - precioRedBull;
                 }
             }
@@ -181,8 +196,8 @@ public class TerceraPantalla extends AppCompatActivity {
         masRedbull.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cantVino = cantVino + 1;
-                cajaVino.setText("" + cantVino);
+                cantRedBull = cantRedBull + 1;
+                txtRedBull.setText("" + cantRedBull);
                 precio = precio + precioRedBull;
             }
         });
@@ -193,7 +208,7 @@ public class TerceraPantalla extends AppCompatActivity {
                 if (cantCerveza == 0) {
                 } else {
                     cantCerveza = cantCerveza - 1;
-                    cajaCerveza.setText("" + cantCerveza);
+                    txtCerveza.setText("" + cantCerveza);
                     precio = precio - precioCerveza;
                 }
             }
@@ -202,77 +217,68 @@ public class TerceraPantalla extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 cantCerveza = cantCerveza + 1;
-                cajaCerveza.setText("" + cantCerveza);
+                txtCerveza.setText("" + cantCerveza);
                 precio = precio + precioCerveza;
             }
         });
 
-        salir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intentaa=new Intent(TerceraPantalla.this,PantallaCero.class);
-                startActivity(intentaa);
-                finish();
-            }
-        });
+
 
         carrito.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
 
-                if (cantCerveza == 0 && cantVino == 0 && cantAgua == 0 && cantLimon == 0 && cantNaranja == 0 && cantCoca == 0) {
+                if (cantCerveza == 0 && cantRedBull == 0 && cantAgua == 0 && cantKas == 0 && cantNestea == 0 && cantCoca == 0) {
                     Toast.makeText(getApplicationContext(), "Tienes que seleccionar por lo menos una bebida.", Toast.LENGTH_SHORT).show();
                 } else {
 
                     if (cantCoca > 0) {
                         pedido.add(cantCoca + "x Coca Cola ("+(cantCoca*precioCoca)+"€).");
                     }
-                    if (cantNaranja > 0) {
-                        pedido.add(cantNaranja + "x Fanta Naranja ("+(cantNaranja*precioNestea)+"€).");
+                    if (cantNestea > 0) {
+                        pedido.add(cantNestea + "x Fanta Naranja ("+(cantNestea *precioNestea)+"€).");
                     }
-                    if (cantLimon > 0) {
-                        pedido.add(cantLimon + "x Fanta Limon ("+(cantLimon*precioKas)+"€).");
+                    if (cantKas > 0) {
+                        pedido.add(cantKas + "x Fanta Limon ("+(cantKas *precioKas)+"€).");
                     }
                     if (cantAgua > 0) {
                         pedido.add(cantAgua + "x Agua ("+(cantAgua*precioAgua)+"€).");
                     }
-                    if (cantVino > 0) {
-                        pedido.add(cantVino + "x Vino ("+(cantVino*precioRedBull)+"€).");
+                    if (cantRedBull > 0) {
+                        pedido.add(cantRedBull + "x Vino ("+(cantRedBull *precioRedBull)+"€).");
                     }
                     if (cantCerveza > 0) {
-                        pedido.add(cantCerveza + "x Cerveza ("+(cantCerveza*precioCerveza)+"€).");
+                        pedido.add(cantCerveza + "x Cerveza ("+(cantCerveza *precioCerveza)+"€).");
                     }
 
-                    cantTotal=cantCerveza+cantVino+cantAgua+cantCoca+cantLimon+cantNaranja;
+                    cantTotal= cantCerveza + cantRedBull +cantAgua+cantCoca+ cantKas + cantNestea;
                     cantAgua = 0;
                     cantCerveza = 0;
                     cantCoca = 0;
-                    cantLimon = 0;
-                    cantNaranja = 0;
-                    cantVino = 0;
+                    cantKas = 0;
+                    cantNestea = 0;
+                    cantRedBull = 0;
 
-                    cajaAgua.setText(String.valueOf(cantAgua));
-                    cajaCerveza.setText(String.valueOf(cantCerveza));
-                    cajaCoca.setText(String.valueOf(cantCoca));
-                    cajaLimon.setText(String.valueOf(cantLimon));
-                    cajaNaranja.setText(String.valueOf(cantNaranja));
-                    cajaVino.setText(String.valueOf(cantVino));
+                    txtAgua.setText(String.valueOf(cantAgua));
+                    txtCerveza.setText(String.valueOf(cantCerveza));
+                    txtCocaCola.setText(String.valueOf(cantCoca));
+                    txtKas.setText(String.valueOf(cantKas));
+                    txtNestea.setText(String.valueOf(cantNestea));
+                    txtRedBull.setText(String.valueOf(cantRedBull));
 
                     price.setText(String.valueOf(precio));
                     pedido.add("TOTAL: " + precio + "€");
 
-                    if (precio > 15) {
-                        pedido.add("Por haber superado los 15€ en el pedido, le vamos a hacer un reagalo de un peluche.");
+                    if (precio > 30) {
+                        pedido.add("Su pedido supera los 30€! Con el pedido le llegará un peluche de Android. Disfrutelo.");
                     }
 
-                    if (precio > 20) {
-                        pedido.add("Ademas del peluche, por haber superado tambien los 20€, le vamos a regalar un vale para comer en el comedor de Cebanc.");
+                    if (precio > 40) {
+                        pedido.add("Ademas del peluche por el pedido superior a 30 euros, por haber superado tambien los 40€, le vamos a obsequiar con un vale para comer en el restaurante propio de Cebanc.");
                     }
 
-                    pedido.add("MUCHAS GRACIAS.");
-
-
+                    pedido.add("Gracias por el pedido realizado! (^_^).");
                 }
 
 
@@ -286,13 +292,23 @@ public class TerceraPantalla extends AppCompatActivity {
                     Toast toast1 = Toast.makeText(getApplicationContext(), "No puedes pedir menos de 1 bebida.", Toast.LENGTH_SHORT);
                     toast1.show();
                 }else{
-                Intent intenta = new Intent(TerceraPantalla.this, PantallaResumen.class);
-                intenta.putExtra("Usuarios", pedido);
-                startActivity(intenta);
-                finish();}
+                    Intent intenta = new Intent(TerceraPantalla.this, PantallaResumen.class);
+                    intenta.putExtra("Usuarios", pedido);
+                    startActivity(intenta);
+                    finish();
+                }
 
             }
 
+        });
+
+        salir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentaa=new Intent(TerceraPantalla.this,PantallaCero.class);
+                startActivity(intentaa);
+                finish();
+            }
         });
     }
 }

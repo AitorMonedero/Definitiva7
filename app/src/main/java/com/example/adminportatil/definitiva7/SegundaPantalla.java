@@ -24,7 +24,7 @@ public class SegundaPantalla extends AppCompatActivity {
 
     private Button plus,minus,volver,siguiente,añadir;
     private int cantidad=1,sumaCantidad=0;
-    private double precio=0,precioTotal=0;
+    private double precio=0,precioTotal=0,precioTamaño=0,precioTipo=0,precioMasa=0;
     private String cantidadString,tipo,masa,tamaño,frase,precioString;
     private TextView cantidadTotal,precioStrings;
     ArrayList<String> pedido;
@@ -46,6 +46,8 @@ public class SegundaPantalla extends AppCompatActivity {
         TipoPizzas = (RadioGroup) findViewById(R.id.tipo01);
         TamañoPizzas = (RadioGroup) findViewById(R.id.tamaño01);
         TipoMasas = (RadioGroup) findViewById(R.id.masa01);
+
+
 
         plus=(Button)findViewById(R.id.btnPlus);
         minus=(Button)findViewById(R.id.btnMinus);
@@ -90,41 +92,49 @@ public class SegundaPantalla extends AppCompatActivity {
                 }else{
                     if (TipoPizzas.getCheckedRadioButtonId() == R.id.btnCarbonara){
                         tipo = "Pizza carbonara ";
+                        precioTipo=3;
                     }else if (TipoPizzas.getCheckedRadioButtonId() == R.id.btnBarbacoa){
                         tipo = "Pizza barbacoa ";
+                        precioTipo=4;
                     }else if (TipoPizzas.getCheckedRadioButtonId() == R.id.btnQuesos){
                         tipo = "Pizza 4 quesos ";
+                        precioTipo=5;
                     }else if (TipoPizzas.getCheckedRadioButtonId() == R.id.btnVegetal){
                         tipo = "Pizza vegetal ";
+                        precioTipo=2;
                     }else if (TipoPizzas.getCheckedRadioButtonId() == R.id.btnTropical){
                         tipo = "Pizza tropical ";
+                        precioTipo=1;
                     }
 
 
                     if (TipoMasas.getCheckedRadioButtonId()==R.id.btnFina){
                         masa="de masa fina";
+                        precioMasa=2;
                     }else if(TipoMasas.getCheckedRadioButtonId()==R.id.btnNormal){
                         masa="de masa normal";
+                        precioMasa=3;
                     }
 
 
                     if (TamañoPizzas.getCheckedRadioButtonId()==R.id.btnIndividual){
                         tamaño="individual ";
-                        precio=6;
+                        precioTamaño=6;
                     }else if(TamañoPizzas.getCheckedRadioButtonId()==R.id.btnMediana){
                         tamaño="mediana ";
-                        precio=10;
+                        precioTamaño=10;
                     }else if(TamañoPizzas.getCheckedRadioButtonId()==R.id.btnFamiliar){
                         tamaño="familiar ";
-                        precio=12;
+                        precioTamaño=12;
                     }
 
                     sumaCantidad=sumaCantidad+cantidad;
+                    precio=precioTamaño+precioTipo+precioMasa;
                     precioTotal=precioTotal+(precio*cantidad);
                     precioString=String.valueOf(precioTotal)+"€";
                     precioStrings.setText(precioString);
                     cantidadString=String.valueOf(cantidad)+"x ";
-                    frase=cantidadString+tipo+tamaño+masa+" "+(precio*cantidad)+"€.";
+                    frase=cantidadString+tipo+tamaño+masa+" ("+(precio*cantidad)+"€).";
                     pedido.add(frase);
                     Toast.makeText(getApplicationContext(), "Añadido con exito al carro de la compra", Toast.LENGTH_SHORT).show();
                     cantidad = 1;
@@ -168,7 +178,7 @@ public class SegundaPantalla extends AppCompatActivity {
             public void onClick(View arg0){
 
                 if(sumaCantidad==0){
-                    Toast toast1 = Toast.makeText(getApplicationContext(), "No puedes pedir menos de 1 pizza.", Toast.LENGTH_SHORT);
+                    Toast toast1 = Toast.makeText(getApplicationContext(), "Debes añadir al menos .", Toast.LENGTH_SHORT);
                     toast1.show();
                 }else {
                     Intent intentaar = new Intent(SegundaPantalla.this, TerceraPantalla.class);

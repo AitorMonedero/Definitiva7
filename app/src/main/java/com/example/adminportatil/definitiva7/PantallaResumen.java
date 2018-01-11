@@ -64,6 +64,7 @@ public class PantallaResumen extends AppCompatActivity {
                 startActivity(sendIntent);
 
                 finish();
+
             }
         });
     }

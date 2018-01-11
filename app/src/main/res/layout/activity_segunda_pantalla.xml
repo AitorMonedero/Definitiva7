@@ -163,7 +163,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_weight="1"
-            android:text="Carbonara"
+            android:text="Carbonara (3€)"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.03"
@@ -180,7 +180,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_weight="1"
-            android:text="Barbacoa"
+            android:text="Barbacoa (4€)"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.03"
@@ -197,7 +197,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_weight="1"
-            android:text="4 Quesos"
+            android:text="4 Quesos (5€)"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.03"
@@ -214,7 +214,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_weight="1"
-            android:text="Vegetal"
+            android:text="Vegetal (2€)"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.03"
@@ -231,7 +231,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_weight="1"
-            android:text="Tropical"
+            android:text="Tropical (1€)"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.03"
@@ -252,7 +252,7 @@
         android:layout_weight="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.908"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.226">
@@ -266,7 +266,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_weight="1"
-            android:text="Individual (6€/u)"
+            android:text="Individual (6€)"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.81"
@@ -282,7 +282,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_weight="1"
-            android:text="Mediana (10€/u)"
+            android:text="Mediana (10€)"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.814"
@@ -299,7 +299,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_weight="1"
-            android:text="Familiar (12€/u)"
+            android:text="Familiar (12€)"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.814"
@@ -320,10 +320,10 @@
         android:layout_weight="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.853"
+        app:layout_constraintHorizontal_bias="0.903"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.569">
+        app:layout_constraintVertical_bias="0.56">
 
         <RadioButton
             android:id="@+id/btnFina"
@@ -334,7 +334,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_weight="1"
-            android:text="Fina"
+            android:text="Fina (2€)"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.81"
@@ -350,7 +350,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_weight="1"
-            android:text="Normal"
+            android:text="Normal (3€)"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.814"
@@ -395,7 +395,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.808"
+        app:layout_constraintHorizontal_bias="0.843"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.108" />
@@ -415,10 +415,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.735"
+        app:layout_constraintHorizontal_bias="0.779"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.447" />
+        app:layout_constraintVertical_bias="0.437" />
 
     <TextView
         android:id="@+id/textView6"
@@ -467,10 +467,10 @@
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.377"
+        app:layout_constraintHorizontal_bias="0.45"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.282"
+        app:layout_constraintVertical_bias="0.284"
         app:srcCompat="@drawable/pizzabarbacoa" />
 
     <ImageView
@@ -483,7 +483,7 @@
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.377"
+        app:layout_constraintHorizontal_bias="0.45"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.187"
@@ -499,10 +499,10 @@
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.377"
+        app:layout_constraintHorizontal_bias="0.45"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.372"
+        app:layout_constraintVertical_bias="0.36"
         app:srcCompat="@drawable/pizza4quesos" />
 
     <ImageView
@@ -515,10 +515,10 @@
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.377"
+        app:layout_constraintHorizontal_bias="0.45"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.47"
+        app:layout_constraintVertical_bias="0.458"
         app:srcCompat="@drawable/pizzavegetal" />
 
     <ImageView
@@ -531,7 +531,7 @@
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.377"
+        app:layout_constraintHorizontal_bias="0.45"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.567"
