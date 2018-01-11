@@ -21,7 +21,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".PrimeraPantalla">
+        <activity android:name=".PrimeraPantalla" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,8 +29,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PantallaCero">
-        </activity>
+        <activity android:name=".PantallaCero" android:screenOrientation="portrait"/>
 
         <activity android:name=".MainActivity">
 
@@ -47,20 +46,17 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".PantallaEleccion">
-        </activity>
+        <activity android:name=".PantallaEleccion" android:screenOrientation="portrait"/>
 
         <activity android:name=".MapsActivity" android:label="@string/title_activity_maps">
         </activity>
 
-        <activity android:name=".SegundaPantalla">
-        </activity>
+        <activity android:name=".SegundaPantalla" android:screenOrientation="portrait"/>
 
-        <activity android:name=".TerceraPantalla">
-        </activity>
+        <activity android:name=".TerceraPantalla" android:screenOrientation="portrait"/>
 
-        <activity android:name=".PantallaResumen">
-        </activity>
+        <activity android:name=".PantallaResumen" android:screenOrientation="portrait"/>
+
 
     </application>
 
