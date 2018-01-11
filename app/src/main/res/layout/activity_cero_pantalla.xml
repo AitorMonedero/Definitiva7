@@ -7,6 +7,8 @@
     android:background="@drawable/fondo3">
 
 
+    //NOTA: LA CASILLA PARA INTRODUCIR EL TELEFONO ES DE TIPO NUMBER Y NO DE TIPO PHONE PORQUE PHONE PERMITE LA INTRODUCCION DE COMAS, ESPACIOS Y PUNTOS.
+
     <ScrollView
         style="@android:style/Widget.Holo.Light.ScrollView"
         android:layout_width="match_parent"
@@ -41,10 +43,10 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.106"
+            app:layout_constraintHorizontal_bias="0.088"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.251" />
+            app:layout_constraintVertical_bias="0.25" />
 
         <TextView
             android:id="@+id/textView13"
@@ -106,7 +108,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="@string/btnFin"
+            android:text="@string/btnSalir"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.167"
@@ -192,8 +194,8 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:ems="10"
-            android:hint="Telefono"
-            android:inputType="phone"
+            android:hint="Introduce tu telefono."
+            android:inputType="number"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.777"

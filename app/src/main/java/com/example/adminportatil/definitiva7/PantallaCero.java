@@ -16,7 +16,6 @@ import java.util.regex.Pattern;
  * Created by adminportatil on 27/12/2017.
  */
 
-
 public class PantallaCero extends AppCompatActivity {
 
     private Button siguiente,salir;
@@ -27,7 +26,7 @@ public class PantallaCero extends AppCompatActivity {
     ArrayList<String> pedido;
 
 
-
+//NOTA: LA CASILLA PARA INTRODUCIR EL TELEFONO ES DE TIPO NUMBER Y NO DE TIPO PHONE PORQUE PHONE PERMITE LA INTRODUCCION DE COMAS, ESPACIOS Y PUNTOS.
 
     @Override
 protected void onCreate(Bundle savedInstanceState) {
