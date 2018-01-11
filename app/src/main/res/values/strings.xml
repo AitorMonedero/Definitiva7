@@ -35,7 +35,7 @@
     <string name="NAME">Nombre</string>
 
     <!--apellido de la pantalla inicial-->
-    <string name="SURNAME">Apellico</string>
+    <string name="SURNAME">Apellido</string>
 
     <!--direccion de la pantalla inicial-->
     <string name="dir1">Direccion</string>
