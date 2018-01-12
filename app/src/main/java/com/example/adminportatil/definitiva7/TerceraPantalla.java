@@ -237,16 +237,16 @@ public class TerceraPantalla extends AppCompatActivity {
                         pedido.add(cantCoca + "x Coca Cola ("+(cantCoca*precioCoca)+"€).");
                     }
                     if (cantNestea > 0) {
-                        pedido.add(cantNestea + "x Fanta Naranja ("+(cantNestea *precioNestea)+"€).");
+                        pedido.add(cantNestea + "x Nestea ("+(cantNestea *precioNestea)+"€).");
                     }
                     if (cantKas > 0) {
-                        pedido.add(cantKas + "x Fanta Limon ("+(cantKas *precioKas)+"€).");
+                        pedido.add(cantKas + "x Kas Limon ("+(cantKas *precioKas)+"€).");
                     }
                     if (cantAgua > 0) {
                         pedido.add(cantAgua + "x Agua ("+(cantAgua*precioAgua)+"€).");
                     }
                     if (cantRedBull > 0) {
-                        pedido.add(cantRedBull + "x Vino ("+(cantRedBull *precioRedBull)+"€).");
+                        pedido.add(cantRedBull + "x RedBull ("+(cantRedBull *precioRedBull)+"€).");
                     }
                     if (cantCerveza > 0) {
                         pedido.add(cantCerveza + "x Cerveza ("+(cantCerveza *precioCerveza)+"€).");
@@ -280,7 +280,7 @@ public class TerceraPantalla extends AppCompatActivity {
         siguiente.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
                 if(cantTotal==0){
-                    Toast toast1 = Toast.makeText(getApplicationContext(), "No puedes pedir menos de 1 bebida.", Toast.LENGTH_SHORT);
+                    Toast toast1 = Toast.makeText(getApplicationContext(), "El carrito no tiene bebidas.", Toast.LENGTH_SHORT);
                     toast1.show();
                 }else{
 

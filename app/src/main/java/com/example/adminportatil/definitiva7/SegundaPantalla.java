@@ -178,7 +178,7 @@ public class SegundaPantalla extends AppCompatActivity {
             public void onClick(View arg0){
 
                 if(sumaCantidad==0){
-                    Toast toast1 = Toast.makeText(getApplicationContext(), "Debes añadir al menos .", Toast.LENGTH_SHORT);
+                    Toast toast1 = Toast.makeText(getApplicationContext(), "El carrito está vacio.", Toast.LENGTH_SHORT);
                     toast1.show();
                 }else {
                     Intent intentaar = new Intent(SegundaPantalla.this, TerceraPantalla.class);
