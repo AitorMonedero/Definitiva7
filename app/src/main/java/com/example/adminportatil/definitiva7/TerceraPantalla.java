@@ -268,17 +268,8 @@ public class TerceraPantalla extends AppCompatActivity {
                     txtRedBull.setText(String.valueOf(cantRedBull));
 
                     price.setText(String.valueOf(precio));
-                    pedido.add("TOTAL: " + precio + "€");
+                    Toast.makeText(getApplicationContext(), "Añadido con exito al carro de la compra", Toast.LENGTH_SHORT).show();
 
-                    if (precio > 30) {
-                        pedido.add("Su pedido supera los 30€! Con el pedido le llegará un peluche de Android. Disfrutelo.");
-                    }
-
-                    if (precio > 40) {
-                        pedido.add("Ademas del peluche por el pedido superior a 30 euros, por haber superado tambien los 40€, le vamos a obsequiar con un vale para comer en el restaurante propio de Cebanc.");
-                    }
-
-                    pedido.add("Gracias por el pedido realizado! (^_^).");
                 }
 
 
@@ -292,6 +283,18 @@ public class TerceraPantalla extends AppCompatActivity {
                     Toast toast1 = Toast.makeText(getApplicationContext(), "No puedes pedir menos de 1 bebida.", Toast.LENGTH_SHORT);
                     toast1.show();
                 }else{
+
+                    pedido.add("TOTAL: " + precio + "€");
+
+                    if (precio > 30) {
+                        pedido.add("Su pedido supera los 30€! Con el pedido le llegará un peluche de Android. Disfrutelo.");
+                    }
+
+                    if (precio > 40) {
+                        pedido.add("Ademas del peluche por el pedido superior a 30 euros, por haber superado tambien los 40€, le vamos a obsequiar con un vale para comer en el restaurante propio de Cebanc.");
+                    }
+
+                    pedido.add("Gracias por el pedido realizado! (^_^).");
                     Intent intenta = new Intent(TerceraPantalla.this, PantallaResumen.class);
                     intenta.putExtra("Usuarios", pedido);
                     startActivity(intenta);
@@ -305,7 +308,7 @@ public class TerceraPantalla extends AppCompatActivity {
         salir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intentaa=new Intent(TerceraPantalla.this,PantallaCero.class);
+                Intent intentaa=new Intent(TerceraPantalla.this,PantallaEleccion.class);
                 startActivity(intentaa);
                 finish();
             }

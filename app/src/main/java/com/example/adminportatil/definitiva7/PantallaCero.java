@@ -79,7 +79,7 @@ protected void onCreate(Bundle savedInstanceState) {
                                                  numPedido = (int) (Math.random() * 350) + 1;
 
                                                  pedido.add(nombre1 + " " + apellido1 + " " + " \n \nDirección: " + direccion1 + "  \n \nTelefono: " + telefono1 + "  \n \nE-mail: " + email1 + " " + " \n \nPedido #" + numPedido + ".");
-                                                 Intent inten = new Intent(PantallaCero.this, PantallaEleccion.class);
+                                                 Intent inten = new Intent(PantallaCero.this, SegundaPantalla.class);
                                                  inten.putExtra("Usuarios", pedido);
                                                  startActivity(inten);
                                                  finish();

@@ -46,7 +46,7 @@ public class PantallaResumen extends AppCompatActivity {
         cancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(PantallaResumen.this, PantallaCero.class);
+                Intent intent = new Intent(PantallaResumen.this, PantallaEleccion.class);
 
                 startActivity(intent);
                 finish();

@@ -14,12 +14,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button ubicarme,volver;
-    ArrayList<String> pedidos;
+
 
     /*int permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE);
     private static final int MY_PERMISSIONS_REQUEST_CALL_PHONE = 1 ;*/
@@ -29,8 +28,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Bundle bundle = getIntent().getExtras();
-        pedidos=bundle.getStringArrayList("Usuarios");
+
 
         ubicarme=(Button)findViewById(R.id.ubicarme);
 
@@ -51,8 +49,8 @@ public class MainActivity extends AppCompatActivity {
                                     {
                                         public void onClick(View arg0){
                                             Intent intentaa=new Intent(MainActivity.this,PantallaEleccion.class);
-                                            intentaa.putExtra("Usuarios",pedidos);
                                             startActivity(intentaa);
+                                            finish();
 
                                         }
 

@@ -165,7 +165,7 @@ public class SegundaPantalla extends AppCompatActivity {
 
         volver.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0){
-                Intent intentaa=new Intent(SegundaPantalla.this,PantallaCero.class);
+                Intent intentaa=new Intent(SegundaPantalla.this,PantallaEleccion.class);
                 startActivity(intentaa);
                 finish();
 

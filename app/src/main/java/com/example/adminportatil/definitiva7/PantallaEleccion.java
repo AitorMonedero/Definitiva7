@@ -14,16 +14,10 @@ public class PantallaEleccion extends AppCompatActivity {
 
 
     private Button informacion,pedido;
-    ArrayList<String> pedidos;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalla_eleccion);
-
-
-
-    Bundle bundle = getIntent().getExtras();
-    pedidos=bundle.getStringArrayList("Usuarios");
 
 
         informacion=(Button)findViewById(R.id.btnInfo);
@@ -32,8 +26,9 @@ public class PantallaEleccion extends AppCompatActivity {
                                     {
                                         public void onClick(View arg0){
                                             Intent inten=new Intent(PantallaEleccion.this,MainActivity.class);
-                                            inten.putExtra("Usuarios",pedidos);
+
                                             startActivity(inten);
+                                            finish();
                                         }
 
                                     }
@@ -45,8 +40,8 @@ public class PantallaEleccion extends AppCompatActivity {
         pedido.setOnClickListener(new View.OnClickListener()
                                        {
                                            public void onClick(View arg0){
-                                               Intent intenta=new Intent(PantallaEleccion.this,SegundaPantalla.class);
-                                               intenta.putExtra("Usuarios",pedidos);
+                                               Intent intenta=new Intent(PantallaEleccion.this,PantallaCero.class);
+
                                                startActivity(intenta);
                                                finish();
                                            }
