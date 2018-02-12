@@ -1,15 +1,23 @@
 package com.example.adminportatil.definitiva7;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by Aitor & Jon on 20/12/2017.
@@ -18,271 +26,174 @@ import java.util.ArrayList;
 public class TerceraPantalla extends AppCompatActivity {
 
 
-    Button siguiente, salir, carrito;
-    TextView txtCocaCola, txtNestea, txtKas, txtAgua, txtRedBull, txtCerveza, price;
-    Button masCocaCola, masNestea, masKas, masRedbull, masCerveza, masAgua, menosCola, menosAgua, menosKas, menosNestea, menosRedBull, menosCerveza;
+    //DECLARAMOS LAS VARIABLES
+    int codigo;
+    ArrayList<String> arrayBebida;
+    ArrayAdapter<String> adapter;
+    TextView labelPrecio,labelPrecio2;
+    double precioBebida;
+    int bebida,cantidadTotal;
+    double precioTotal;
+    String precioSeleccionado,bebidaa,username,nombreBebida;
 
+
+    Button siguiente, salir, mas, menos, añadir;
+    TextView cant, labelNombre;
+    private int linea=0;
+    ListView bebidas;
+    private int cantidad,codigoPedido,codigoBebida,codigoUsuario,userCode;
 
     ArrayList<String> pedido;
 
-    int cantCoca,
-            cantTotal,
-            cantNestea,
-            cantKas,
-            cantRedBull,
-            cantAgua,
-            cantCerveza;
+    int cantTotal;
 
-    double precio,
-            precioCoca = 1.50,
-            precioAgua = 1.00,
-            precioRedBull = 2.00,
-            precioNestea = 1.50,
-            precioKas = 1.50,
-            precioCerveza = 2.00;
+
+    double precio;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tercera_pantalla);
+        //INSTANCIAMOS LAS VARIABLES
+        pedido=new ArrayList<String>();
 
         Bundle bundle = getIntent().getExtras();
-        pedido = bundle.getStringArrayList("Usuarios");
+        username=bundle.getString("NombreUsuario");
+
         precio = bundle.getDouble("Dinero");
+        pedido = bundle.getStringArrayList("Usuarios");
+        codigoPedido= bundle.getInt("Codigo");
 
 
-        //Todos lo relacionado con la Coca-Cola
-        txtCocaCola = (TextView) findViewById(R.id.textView19);
-        cantCoca = Integer.parseInt(txtCocaCola.getText().toString());
-        masCocaCola = (Button) findViewById(R.id.masCoca);
-        menosCola = (Button) findViewById(R.id.menoCoca);
 
-
-        //Todos lo relacionado con el Nestea
-        txtNestea = (TextView) findViewById(R.id.textView23);
-        cantNestea = Integer.parseInt(txtNestea.getText().toString());
-        masNestea = (Button) findViewById(R.id.masNaranja);
-        menosNestea = (Button) findViewById(R.id.menosNaranja);
-
-
-        //Todos lo relacionado con el Kas
-        txtKas = (TextView) findViewById(R.id.textView16);
-        cantKas = Integer.parseInt(txtKas.getText().toString());
-        masKas = (Button) findViewById(R.id.masLimon);
-        menosKas = (Button) findViewById(R.id.menosLimon);
-
-
-        //Todos lo relacionado con el Agua
-        txtAgua = (TextView) findViewById(R.id.textView22);
-        cantAgua = Integer.parseInt(txtAgua.getText().toString());
-        masAgua = (Button) findViewById(R.id.masAgua);
-        menosAgua = (Button) findViewById(R.id.menosAgua);
-
-
-        //Todos lo relacionado con el RedBull
-        txtRedBull = (TextView) findViewById(R.id.textView20);
-        cantRedBull = Integer.parseInt(txtRedBull.getText().toString());
-        masRedbull = (Button) findViewById(R.id.masRedbull);
-        menosRedBull = (Button) findViewById(R.id.menosRedBull);
-
-
-        //Todos lo relacionado con la Cerveza
-        txtCerveza = (TextView) findViewById(R.id.textView21);
-        cantCerveza = Integer.parseInt(txtCerveza.getText().toString());
-        masCerveza = (Button) findViewById(R.id.masCerveza);
-        menosCerveza = (Button) findViewById(R.id.menosCerveza);
-
-        //Todos lo relacionado con los botones
+        salir = (Button) findViewById(R.id.button11);
+        labelNombre = (TextView) findViewById(R.id.textView20);
+        cant = (TextView) findViewById(R.id.textView19);
+        mas = (Button) findViewById(R.id.mas);
+        menos = (Button) findViewById(R.id.menos);
         siguiente = (Button) findViewById(R.id.button9);
         salir = (Button) findViewById(R.id.button11);
-        carrito = (Button) findViewById(R.id.btnCompra);
+        labelPrecio=(TextView) findViewById(R.id.txtPrecio);
+        labelPrecio2 = (TextView) findViewById(R.id.txtPrecio2);
 
-        //Todos lo relacionado con el precio
-        price = (TextView) findViewById(R.id.txtPrecio);
-        price.setText(String.valueOf(precio));
 
-        menosCola.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (cantCoca != 0) {
-                    cantCoca = cantCoca - 1;
-                    txtCocaCola.setText("" + cantCoca);
-                    precio = precio - precioCoca;
-                }
+
+
+        añadir = (Button) findViewById(R.id.button14);
+
+        linea = 1;
+
+        bebidas = (ListView) findViewById(R.id.lista);
+
+
+        arrayBebida=new ArrayList<String>();
+        rellenarBebidas(bebidas);
+
+
+        labelPrecio2.setText(""+precio);
+
+
+        bebidas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            public void onItemClick(AdapterView<?> parent, View view, int posicion, long id) {
+                elegirBebida(posicion);
             }
         });
-        masCocaCola.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                cantCoca = cantCoca + 1;
-                txtCocaCola.setText("" + cantCoca);
-                precio = precio + precioCoca;
-            }
-        });
 
-
-        menosNestea.setOnClickListener(new View.OnClickListener() {
+        mas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (cantNestea != 0) {
-                    cantNestea = cantNestea - 1;
-                    txtNestea.setText("" + cantNestea);
-                    precio = precio - precioNestea;
-                }
-            }
-        });
-        masNestea.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                cantNestea = cantNestea + 1;
-                txtNestea.setText("" + cantNestea);
-                precio = precio + precioNestea;
+                cantidad = cantidad + 1;
+                cant.setText("" + cantidad);
             }
         });
 
 
-        menosKas.setOnClickListener(new View.OnClickListener() {
+        menos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (cantKas == 0) {
+                if (cantidad <= 0) {
                 } else {
-                    cantKas = cantKas - 1;
-                    txtKas.setText("" + cantKas);
-                    precio = precio - precioKas;
+                    cantidad = cantidad - 1;
+                    cant.setText("" + cantidad);
                 }
             }
         });
-        masKas.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                cantKas = cantKas + 1;
-                txtKas.setText("" + cantKas);
-                precio = precio + precioKas;
+
+
+        salir.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                //borrarSesion(codigoUsuario);
+                finish();
+
             }
-        });
+        }
 
-        menosAgua.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (cantAgua == 0) {
-                } else {
-                    cantAgua = cantAgua - 1;
-                    txtAgua.setText("" + cantAgua);
-                    precio = precio - precioAgua;
-                }
-            }
-        });
-        masAgua.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                cantAgua = cantAgua + 1;
-                txtAgua.setText("" + cantAgua);
-                precio = precio + precioAgua;
-            }
-        });
+        );
 
-        menosRedBull.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (cantRedBull == 0) {
-                } else {
-                    cantRedBull = cantRedBull - 1;
-                    txtRedBull.setText("" + cantRedBull);
-                    precio = precio - precioRedBull;
-                }
-            }
-        });
-        masRedbull.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                cantRedBull = cantRedBull + 1;
-                txtRedBull.setText("" + cantRedBull);
-                precio = precio + precioRedBull;
-            }
-        });
-
-        menosCerveza.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (cantCerveza == 0) {
-                } else {
-                    cantCerveza = cantCerveza - 1;
-                    txtCerveza.setText("" + cantCerveza);
-                    precio = precio - precioCerveza;
-                }
-            }
-        });
-        masCerveza.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                cantCerveza = cantCerveza + 1;
-                txtCerveza.setText("" + cantCerveza);
-                precio = precio + precioCerveza;
-            }
-        });
-
-
-
-        carrito.setOnClickListener(new View.OnClickListener() {
+        añadir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-
-                if (cantCerveza == 0 && cantRedBull == 0 && cantAgua == 0 && cantKas == 0 && cantNestea == 0 && cantCoca == 0) {
-                    Toast.makeText(getApplicationContext(), "Tienes que seleccionar por lo menos una bebida.", Toast.LENGTH_SHORT).show();
+                if (labelNombre.getText() == "") {
+                    Toast toast1 = Toast.makeText(getApplicationContext(), "Debes elegir una bebida.", Toast.LENGTH_SHORT);
+                    toast1.show();
+                } else if (cantidad == 0) {
+                    Toast toast1 = Toast.makeText(getApplicationContext(), "Debes seleccionar una cantidad.", Toast.LENGTH_SHORT);
+                    toast1.show();
                 } else {
 
-                    if (cantCoca > 0) {
-                        pedido.add(cantCoca + "x Coca Cola ("+(cantCoca*precioCoca)+"€).");
-                    }
-                    if (cantNestea > 0) {
-                        pedido.add(cantNestea + "x Nestea ("+(cantNestea *precioNestea)+"€).");
-                    }
-                    if (cantKas > 0) {
-                        pedido.add(cantKas + "x Kas Limon ("+(cantKas *precioKas)+"€).");
-                    }
-                    if (cantAgua > 0) {
-                        pedido.add(cantAgua + "x Agua ("+(cantAgua*precioAgua)+"€).");
-                    }
-                    if (cantRedBull > 0) {
-                        pedido.add(cantRedBull + "x RedBull ("+(cantRedBull *precioRedBull)+"€).");
-                    }
-                    if (cantCerveza > 0) {
-                        pedido.add(cantCerveza + "x Cerveza ("+(cantCerveza *precioCerveza)+"€).");
-                    }
 
-                    cantTotal= cantCerveza + cantRedBull +cantAgua+cantCoca+ cantKas + cantNestea;
-                    cantAgua = 0;
-                    cantCerveza = 0;
-                    cantCoca = 0;
-                    cantKas = 0;
-                    cantNestea = 0;
-                    cantRedBull = 0;
 
-                    txtAgua.setText(String.valueOf(cantAgua));
-                    txtCerveza.setText(String.valueOf(cantCerveza));
-                    txtCocaCola.setText(String.valueOf(cantCoca));
-                    txtKas.setText(String.valueOf(cantKas));
-                    txtNestea.setText(String.valueOf(cantNestea));
-                    txtRedBull.setText(String.valueOf(cantRedBull));
+                    insertarLineaBebida(codigoBebida, linea, cantidad, precioBebida,codigoPedido);
+                    linea = linea + 1;
 
-                    price.setText(String.valueOf(precio));
-                    Toast.makeText(getApplicationContext(), "Añadido con exito al carro de la compra", Toast.LENGTH_SHORT).show();
+                    //bebidaa = labelNombre.getText().toString().toLowerCase();
+
+                    precioTotal = precioBebida * cantidad;
+                    cantidadTotal=cantidadTotal+cantidad;
+
+                    pedido.add(cantidad + " " + nombreBebida + ": " + precioTotal + "€");
+
+                    precio = precio + precioTotal;
+
+                    labelPrecio.setText("" + precioBebida);
+
+                    labelPrecio2.setText(""+precio);
+
+                    cantidad = 0;
+                    cant.setText("" + cantidad);
+
 
                 }
-
-
             }
         });
-
 
         siguiente.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                if(cantTotal==0){
+                if(cantidadTotal==0){
                     Toast toast1 = Toast.makeText(getApplicationContext(), "El carrito no tiene bebidas.", Toast.LENGTH_SHORT);
                     toast1.show();
                 }else{
+
+                    Date c = Calendar.getInstance().getTime();
+
+
+                    SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
+                    String formattedDate = df.format(c);
+
+                    ActivitySQL usdbh2 = new ActivitySQL(TerceraPantalla.this, "DBUsuarios", null, 14);
+
+                    SQLiteDatabase db2 = usdbh2.getWritableDatabase();
+
+                    String sqlIntroduceDatos="UPDATE cabecera_pedido SET fecha_pedido='"+formattedDate+"', precio_total="+precio+" WHERE codigo_pedido = '"+codigoPedido+"'";
+
+                    db2.execSQL(sqlIntroduceDatos);
+
+                    db2.close();
+                    usdbh2.close();
+
 
                     pedido.add("TOTAL: " + precio + "€");
 
@@ -295,25 +206,111 @@ public class TerceraPantalla extends AppCompatActivity {
                     }
 
                     pedido.add("Gracias por el pedido realizado! (^_^).");
+
+                    //INSERTAR EN LA BASE DE DATOS
+
+                    userCode=obtenerCodigoUsuario(codigoPedido);
+
+
                     Intent intenta = new Intent(TerceraPantalla.this, PantallaResumen.class);
                     intenta.putExtra("Usuarios", pedido);
+                    intenta.putExtra("Codigo",codigoPedido);
+                    intenta.putExtra("Money",precio);
+                    intenta.putExtra("codigoUsuario",userCode);
+
                     startActivity(intenta);
                     finish();
                 }
 
             }
-
         });
 
-        salir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intentaa=new Intent(TerceraPantalla.this,PantallaEleccion.class);
-                startActivity(intentaa);
-                finish();
-            }
-        });
+        }
+
+
+        //METODOS PARA EL FUNCIONAMIENTO DE LAS BEBIDAS
+    public void rellenarBebidas(ListView lista){
+        ActivitySQL usdbh2 = new ActivitySQL(this, "DBUsuarios", null, 14);
+
+        SQLiteDatabase db2 = usdbh2.getWritableDatabase();
+        Cursor cursor = db2.rawQuery("SELECT nombre FROM bebidas", null);
+
+        while (cursor.moveToNext()) {
+            arrayBebida.add(cursor.getString(0));
+        }
+
+        db2.close();
+        usdbh2.close();
+
+        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayBebida);
+        bebidas.setAdapter(adapter);
     }
+
+    public void elegirBebida(int posicion){
+
+        ActivitySQL usdbh2 = new ActivitySQL(this, "DBUsuarios", null, 14);
+
+        SQLiteDatabase db2 = usdbh2.getWritableDatabase();
+
+        Cursor cursor = db2.rawQuery("SELECT codigo_bebida,nombre,precio From Bebidas WHERE codigo_bebida = " + (posicion +1) + "",null);
+
+        while (cursor.moveToNext()) {
+
+            precioSeleccionado = cursor.getString(2);
+
+            labelPrecio.setText(precioSeleccionado);
+
+            nombreBebida = cursor.getString(1);
+
+            labelNombre.setText(nombreBebida);
+
+            precioBebida = Double.parseDouble(cursor.getString(2));
+
+            bebida = posicion;
+
+            cant.setText("0");
+
+            codigoBebida = cursor.getInt(0);
+
+        }
+
+        db2.close();
+        usdbh2.close();
+        cantidad = Integer.parseInt(""+cant.getText());
+    }
+
+    public void insertarLineaBebida(int codigoBebida,int lineaActual,int canti,double precio,int codigo){
+
+        ActivitySQL usdbh2 = new ActivitySQL(this, "DBUsuarios", null, 14);
+
+        SQLiteDatabase db2 = usdbh2.getWritableDatabase();
+
+
+        String sqlInsertPizzas="INSERT INTO Lineas_bebidas(codigo_pedido,linea_bebida,codigo_bebida,cantidad,precio) VALUES("+codigo+","+lineaActual+","+codigoBebida+","+canti+","+precio+")";
+        db2.execSQL(sqlInsertPizzas);
+
+
+        db2.close();
+        usdbh2.close();
+    }
+
+    public int obtenerCodigoUsuario(int codigo){
+        ActivitySQL usdbh2 = new ActivitySQL(this, "DBUsuarios", null, 14);
+
+        SQLiteDatabase db2 = usdbh2.getWritableDatabase();
+
+        Cursor cursor = db2.rawQuery("SELECT codigo From cabecera_pedido WHERE codigo_pedido = " + codigo + "",null);
+
+        while (cursor.moveToNext()) {
+
+            codigoUsuario=cursor.getInt(0);
+
+        }
+
+        db2.close();
+        usdbh2.close();
+        return codigoUsuario;
+    }
+
+
 }
-
-

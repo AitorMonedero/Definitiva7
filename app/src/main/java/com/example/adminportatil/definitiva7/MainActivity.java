@@ -20,8 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private Button ubicarme,volver;
 
 
-    /*int permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE);
-    private static final int MY_PERMISSIONS_REQUEST_CALL_PHONE = 1 ;*/
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

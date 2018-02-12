@@ -19,7 +19,7 @@ public class PantallaEleccion extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalla_eleccion);
 
-
+//BOTON DE INFORMACION
         informacion=(Button)findViewById(R.id.btnInfo);
 
         informacion.setOnClickListener(new View.OnClickListener()
@@ -35,6 +35,7 @@ public class PantallaEleccion extends AppCompatActivity {
 
         );
 
+//BOTON DE PEDIDO
         pedido=(Button)findViewById(R.id.btnPedido);
 
         pedido.setOnClickListener(new View.OnClickListener()

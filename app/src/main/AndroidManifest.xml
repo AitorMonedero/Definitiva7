@@ -34,6 +34,7 @@
 
         <activity android:name=".PantallaCero" android:screenOrientation="portrait"/>
 
+
         <activity android:name=".MainActivity">
 
         </activity>
@@ -59,6 +60,8 @@
         <activity android:name=".TerceraPantalla" android:screenOrientation="portrait"/>
 
         <activity android:name=".PantallaResumen" android:screenOrientation="portrait"/>
+
+        <activity android:name=".PantallaAdmin" android:screenOrientation="portrait"/>
 
 
     </application>
